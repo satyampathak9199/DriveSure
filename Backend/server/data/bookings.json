@@ -1,0 +1,104 @@
+ [
+  {
+    "id": "1",
+    "name": "Satyam",
+    "email": "satyampathak9199@gmail.com",
+    "brand": "Suzuki",
+    "type": "Hatchback",
+    "carModel": "Swift",
+    "registrationNo": "BR 44 AE 1883",
+    "serviceType": "Car Wash"
+  },
+  {
+    "id": "2",
+    "name": "Anjali Sharma",
+    "email": "anjali.sharma12@example.com",
+    "brand": "Hyundai",
+    "type": "SUV",
+    "carModel": "Creta",
+    "registrationNo": "DL 3C AX 1020",
+    "serviceType": "Oil Change"
+  },
+  {
+    "id": "3",
+    "name": "Rohit Verma",
+    "email": "rohitv99@example.com",
+    "brand": "Honda",
+    "type": "Sedan",
+    "carModel": "City",
+    "registrationNo": "MH 12 ER 4456",
+    "serviceType": "Tyre Replacement"
+  },
+  {
+    "id": "4",
+    "name": "Priya Mehta",
+    "email": "priya.mehta@example.com",
+    "brand": "Tata",
+    "type": "Hatchback",
+    "carModel": "Altroz",
+    "registrationNo": "GJ 05 DF 3312",
+    "serviceType": "Battery Check"
+  },
+  {
+    "id": "5",
+    "name": "Aman Yadav",
+    "email": "amanyadav91@example.com",
+    "brand": "Mahindra",
+    "type": "SUV",
+    "carModel": "XUV300",
+    "registrationNo": "UP 32 GA 7620",
+    "serviceType": "Engine Tuning"
+  },
+  {
+    "id": "6",
+    "name": "Nikita Jain",
+    "email": "nikita.jain@example.com",
+    "brand": "Kia",
+    "type": "SUV",
+    "carModel": "Seltos",
+    "registrationNo": "RJ 14 ZR 9821",
+    "serviceType": "Car Wash"
+  },
+  {
+    "id": "7",
+    "name": "Rahul Singh",
+    "email": "rahul.singh@example.com",
+    "brand": "Maruti",
+    "type": "Sedan",
+    "carModel": "Ciaz",
+    "registrationNo": "MP 09 CD 7788",
+    "serviceType": "AC Repair"
+  },
+  {
+    "id": "8",
+    "name": "Sneha Reddy",
+    "email": "sneha.reddy@example.com",
+    "brand": "Toyota",
+    "type": "Hatchback",
+    "carModel": "Glanza",
+    "registrationNo": "KA 03 ML 1187",
+    "serviceType": "Interior Cleaning"
+  },
+  {
+    "id": "9",
+    "name": "Karan Malhotra",
+    "email": "karan.malhotra@example.com",
+    "brand": "Volkswagen",
+    "type": "Sedan",
+    "carModel": "Vento",
+    "registrationNo": "PB 10 AK 3402",
+    "serviceType": "Car Wash"
+  },
+  {
+    "id": "10",
+    "name": "Deepika Thakur",
+    "email": "deepika.t@example.com",
+    "brand": "Ford",
+    "type": "SUV",
+    "carModel": "EcoSport",
+    "registrationNo": "CH 01 BB 9988",
+    "serviceType": "Brake Inspection"
+  }
+]
+
+ 
