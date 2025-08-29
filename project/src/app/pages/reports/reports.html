@@ -1,0 +1,85 @@
+<div class="col-12">
+  <div class="card">
+    <div class="card-header bg-secondary">
+      Client Details
+    </div>
+    <div class="card-body">
+      <div class="row g-2">
+        <div class="col-6 mb-2 ">
+          <label for="name" class="form-label mb-2"> Name <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="name" placeholder="Enter Name" [(ngModel)]="clientObj.name"
+            required>
+        </div>
+        <div class="col-6">
+          <label for="email" class="form-label mb-2">Email <span class="text-danger">*</span></label>
+          <input type="email" class="form-control" id="email" placeholder="Enter Email" [(ngModel)]="clientObj.email"
+            required>
+        </div>
+        <div class="col-6">
+          <label for="phone" class="form-label mb-2"> Phone No. <span class="text-danger">*</span></label>
+          <input type="number" class="form-control" id="phone" placeholder="Enter Phone No."
+            [(ngModel)]="clientObj.phone" required>
+        </div>
+        <div class="col-6">
+          <label for="brand" class="form-label mb-2">Brand <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="brand" placeholder="Enter Brand" [(ngModel)]="clientObj.carBrand"
+            required>
+        </div>
+        <div class="col-6">
+          <label for="model" class="form-label mb-2"> Model <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="model" placeholder="Enter Model" [(ngModel)]="clientObj.carModel"
+            required>
+        </div>
+        <div class="col-6">
+          <label for="inputState" class="form-label mb-2">Car Type <span class="text-danger">*</span></label>
+         <select id="inputState" class="form-select" class="form-control" placeholder="Choose..."
+            [(ngModel)]="clientObj.type" required>
+            <option selected>Choose...</option>
+            <option value="">-- Select Car Type --</option>
+            <option value="hatchback">Hatchback</option>
+            <option value="sedan">Sedan</option>
+            <option value="suv">SUV (Sports Utility Vehicle)</option>
+            <option value="muv">MUV (Multi Utility Vehicle)</option>
+            <option value="coupe">Coupe</option>
+            <option value="convertible">Convertible</option>
+            <option value="pickup">Pickup Truck</option>
+            <option value="van">Van</option>
+            <option value="crossover">Crossover</option>
+            <option value="electric">Electric Car</option>
+            <option value="luxury">Luxury Car</option>
+          </select>
+        </div>
+        <div class="col-6">
+          <label for="service" class="form-label mb-2">Service <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="service" placeholder="Enter Service" [(ngModel)]="clientObj.serviceType"
+            required>
+        </div>
+        <div class="col-6">
+          <label for="city" class="form-label mb-2">City <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="city" placeholder="Enter City" [(ngModel)]="clientObj.city"
+            required>
+        </div>
+        <div class="col-6">
+          <label for="regNo" class="form-label mb-2">Registration No. <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="regNo" placeholder="Enter Registration No." [(ngModel)]="clientObj.registrationNo" required>
+
+        </div>
+
+      </div>
+      <div class="col-2 ">
+        <br>
+        <button class="btn btn-primary" (click)="submitForm()">Submit</button>
+      </div>
+    </div>
+  </div>
+
+  <div #toastEl class="toast align-items-center text-bg-success border-0 position-fixed bottom-0  m-4" role="alert"
+    aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+      <div class="toast-body">
+        Booking successful!
+      </div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+        aria-label="Close"></button>
+    </div>
+  </div>

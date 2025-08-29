@@ -1,0 +1,136 @@
+
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header bg-primary d-flex justify-content-between">
+        Client Booking List
+        <a class="btn btn-secondary" [routerLink]="'new'">Add New</a>
+      </div>
+
+      <div class="mb-3 col-3 m-1">
+        <input type="text" class="form-control" placeholder="Search by name or email" [(ngModel)]="searchTerm"
+          (input)="currentPage = 1" />
+      </div>
+      <div class="mb-3 col-3">
+        <!-- <label for="statusFilter" class="form-label">Filter by Status:</label> -->
+        <select id="statusFilter" class="form-select" [(ngModel)]="statusFilter">
+          <option value="All">All</option>
+          <option value="Complete">Complete</option>
+          <option value="Incomplete">Incomplete</option>
+        </select>
+      </div>
+      <div class="card-body">
+        <table class="table table-bordered">
+          <thead class="table-dark">
+            <tr>
+              <th>#</th>
+              <th (click)="sortBy('name')" style="cursor:pointer">
+                Name
+                <span *ngIf="sortColumn === 'name'">
+                  <span *ngIf="sortDirection === 'asc'">▲</span>
+                  <span *ngIf="sortDirection === 'desc'">▼</span>
+                </span>
+              </th>
+              <th (click)="sortBy('email')" style="cursor:pointer">
+                Email
+                <span *ngIf="sortColumn === 'email'">
+                  <span *ngIf="sortDirection === 'asc'">▲</span>
+                  <span *ngIf="sortDirection === 'desc'">▼</span>
+                </span>
+              </th>
+              <th>Phone</th>
+              <th>Brand</th>
+              <th>Model</th>
+              <th>Type</th>
+              <th>Service</th>
+              <th>City</th>
+              <th>Registration No</th>
+              <!-- <th>Car Drop On:</th> -->
+              <th (click)="sortBy('pickUpDate')" style="cursor:pointer">
+                PickUp Date
+                <span *ngIf="sortColumn === 'pickUpDate'">
+                  <span *ngIf="sortDirection==='asc'">▲</span>
+                  <span *ngIf="sortDirection==='desc'">▼</span>
+                </span>
+              </th>
+              <th>Actions</th>
+               <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let client of sortedPaginatedBookings; let i = index">
+              <td>{{ (currentPage - 1) * itemsPerPage + i + 1 }}</td>
+              <td>{{ client.name }}</td>
+              <td>{{ client.email }}</td>
+              <td>{{ client.phone }}</td>
+              <td>{{ client.carBrand }}</td>
+              <td>{{ client.carModel }}</td>
+              <td>{{ client.type }}</td>
+              <td>{{ client.serviceType }}</td>
+              <td>{{ client.city }}</td>
+              <td>{{ client.registrationNo }}</td>
+              <!-- <td>{{ client.carDropdate | date: 'dd-MM-yyyy' }}</td> -->
+              <td>{{ client.pickUpDate | date: 'mediumDate' }}</td>
+
+              <td>
+                <span class=" p-3">
+                 <a [routerLink]="'/booking/' + client._id + '/edit'">
+                  <i class="bi bi-pencil-square" style="cursor:pointer"></i>
+                  </a>
+                </span>
+
+                <span class="text-danger ">
+                  <i class="bi bi-trash3 " style="cursor:pointer bg-danger" (click)="deleteBooking(client._id)"></i>
+                </span>
+              </td>
+                      <td>
+              <!-- <span [ngClass]="{
+                'badge bg-success': client.status === 'Complete',
+                'badge bg-warning': client.status === 'Incomplete'
+              }">
+                {{ client.status }}
+              </span> -->
+                <select class="form-select form-select-sm"
+          [(ngModel)]="client.status"
+          (change)="updateStatus(client)"
+          [ngClass]="{
+            'bg-success text-white': client.status === 'Complete',
+            'bg-warning text-dark': client.status === 'Incomplete'
+          }">
+    <option value="Complete">Complete</option>
+    <option value="Incomplete">Incomplete</option>
+  </select>
+            </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <nav class="mt-3">
+          <ul class="pagination justify-content-center">
+            <li class="page-item" [class.disabled]="currentPage === 1">
+              <a class="page-link" href="javascript:void(0)" (click)="goToPage(1)">First</a>
+            </li>
+            <li class="page-item" [class.disabled]="currentPage === 1">
+              <a class="page-link" href="javascript:void(0)" (click)="goToPage(currentPage - 1)">Previous</a>
+            </li>
+
+            <li class="page-item" *ngFor="let page of totalPagesArray" [class.active]="page === currentPage">
+              <a class="page-link" href="javascript:void(0)" (click)="goToPage(page)">{{ page }}</a>
+            </li>
+
+            <li class="page-item" [class.disabled]="currentPage === totalPages">
+              <a class="page-link" href="javascript:void(0)" (click)="goToPage(currentPage + 1)">Next</a>
+            </li>
+            <li class="page-item" [class.disabled]="currentPage === totalPages">
+              <a class="page-link" href="javascript:void(0)" (click)="goToPage(totalPages)">Last</a>
+            </li>
+          </ul>
+          <div class="text-center mt-2">
+            Page {{ currentPage }} of {{ totalPages }}
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>

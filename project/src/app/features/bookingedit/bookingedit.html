@@ -1,0 +1,197 @@
+<div class="col-12">
+  <div class="card">
+    <div class="card-header bg-secondary">
+      Edit Booking
+    </div>
+
+    <form class="card-body" [formGroup]="updateFormGroup" (ngSubmit)="onUpdate()">
+      <div class="row g-1">
+        <div class="col-6 mb-2">
+          <label for="name" class="form-label mb-2">
+            Name <span class="text-danger">*</span>
+          </label>
+          <input type="text" formControlName="name" class="form-control" placeholder="Enter Name" />
+          @if(updateFormGroup.controls['name'].touched){
+          <div class="text-danger">
+            @if(updateFormGroup.controls['name'].errors?.['required']){
+            <span>Name is Required</span>
+            }
+          </div>
+          }
+        </div>
+
+        <div class="col-6">
+          <label for="email" class="form-label mb-2">
+            Email <span class="text-danger">*</span>
+          </label>
+          <input type="text" formControlName="email" class="form-control" placeholder="Enter Email" />
+          @if(updateFormGroup.controls['email'].touched){
+          <div class="text-danger">
+            @if(updateFormGroup.controls['email'].errors?.['required']){
+            <span>This Field is Required</span>
+            }
+            @if(updateFormGroup.controls['email'].errors?.['email']){
+            <span>Email is not Correct</span>
+            }
+          </div>
+          }
+        </div>
+
+        <div class="col-6">
+          <label for="phone" class="form-label mb-2">
+            Phone <span class="text-danger">*</span>
+          </label>
+          <input type="number" formControlName="phone" class="form-control" placeholder="Enter Phone No." />
+          @if(updateFormGroup.controls['phone'].touched){
+          <div class="text-danger">
+            @if(updateFormGroup.controls['phone'].errors?.['required']){
+            <span>Phone No. is Required</span>
+            }
+            @if(updateFormGroup.controls['phone'].errors?.['pattern']){
+            <span>Enter 10 digits</span>
+            }
+          </div>
+          }
+        </div>
+
+           <div class="mb-2 col-6">
+          <label for="carBrand" class="form-label">Car Brand</label>
+          <select id="carBrand" class="form-select" formControlName="carBrand">
+            <option value="">-- Select Brand --</option>
+            <option *ngFor="let brand of brands" [value]="brand.name">
+              {{ brand.name }}
+            </option>
+          </select>
+          <div *ngIf="updateFormGroup.get('carBrand')?.touched && updateFormGroup.get('carBrand')?.invalid" class="text-danger">
+            Brand is required.
+          </div>
+        </div>
+
+        <!-- Car Model Dropdown -->
+        <div class="mb-2 col-6">
+          <label for="carModel" class="form-label">Car Model</label>
+          <select id="carModel" class="form-select" formControlName="carModel" [disabled]="models.length === 0">
+            <option value="">-- Select Model --</option>
+            <option *ngFor="let model of models" [ngValue]="model.name">
+              {{ model.name }}
+            </option>
+          </select>
+          <div *ngIf="updateFormGroup.get('carModel')?.touched && updateFormGroup.get('carModel')?.invalid" class="text-danger">
+            Model is required.
+          </div>
+        </div>
+
+
+        <div class="mb-2 col-6">
+          <label for="car Type" class="form-label">Car Type</label>
+          <input type="text" id="type" formControlName="type" class="form-control"
+         readonly />
+        </div>
+
+
+
+        <div class="col-6">
+          <label for="city" class="form-label mb-2">
+            City <span class="text-danger">*</span>
+          </label>
+          <input type="text" formControlName="city" class="form-control" placeholder="Enter city" />
+          @if(updateFormGroup.controls['city'].touched){
+          <div class="text-danger">
+            @if(updateFormGroup.controls['city'].errors?.['required']){
+            <span>Enter Your City Name</span>
+            }
+            @if(updateFormGroup.controls['city'].errors?.['minlength']){
+            <span>Enter a Valid City</span>
+            }
+          </div>
+          }
+        </div>
+
+
+
+        <div class="col-6">
+          <label for="service" class="form-label mb-2">
+            Service <span class="text-danger">*</span>
+          </label>
+          <input type="text" class="form-control" id="service" placeholder="Enter Service"
+            formControlName="serviceType" />
+          @if(updateFormGroup.controls['serviceType'].touched){
+          <div class="text-danger">
+            @if(updateFormGroup.controls['serviceType'].errors?.['required']){
+            <span>Choose Your Car Service Type</span>
+            }
+          </div>
+          }
+        </div>
+
+        <div class="col-6">
+          <label for="regNo" class="form-label mb-2">
+            Registration No. <span class="text-danger">*</span>
+          </label>
+          <input type="text" class="form-control" id="regNo" placeholder="Enter Registration No."
+            formControlName="registrationNo" />
+          @if(updateFormGroup.controls['registrationNo'].touched){
+          <div class="text-danger">
+            @if(updateFormGroup.controls['registrationNo'].errors?.['required']){
+            <span>Enter your registration No.</span>
+            }
+            @if(updateFormGroup.controls['registrationNo'].errors?.['minlength']){
+            <span>Enter four digits</span>
+            }
+            @if(updateFormGroup.controls['registrationNo'].errors?.['maxlength']){
+            <span>Enter only four digits</span>
+            }
+          </div>
+          }
+        </div>
+
+        <!-- <div class="col-2 m-5" formControlName="carDropDate"> -->
+        <!--
+                <label for="carDropDate" class="form-label mb-2">
+            Drop-up Date <span class="text-danger">*</span>
+          </label>
+          <input type="date" id="carDropDate" class="form-control" formControlName="carDropDate"  />
+          @if(updateFormGroup.controls['carDropDate'].touched){
+            <div class="text-danger">
+              @if(updateFormGroup.controls['carDropDate'].errors?.['required']){
+                <span>Choose drop date</span>
+              }
+            </div>
+          }
+
+        </div> -->
+
+        <div class="col-6 mb-2">
+          <label for="pickupDate" class="form-label mb-2">
+            Pick-up Date <span class="text-danger">*</span>
+          </label>
+          <input type="date" id="pickUpDate" class="form-control" formControlName="pickUpDate" />
+          @if(updateFormGroup.controls['pickUpDate'].touched){
+          <div class="text-danger">
+            @if(updateFormGroup.controls['pickUpDate'].errors?.['required']){
+            <span>Choose Pick Up date</span>
+            }
+          </div>
+          }
+        </div>
+        <div class="col-6 mb-2">
+          <label for="status" class="form-label mb-2"> Status:</label>
+          <select id="status" class="form-select" formControlName="status">
+            <option value="Complete">Complete</option>
+            <option value="Incomplete">Incomplete</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="row g-2 mt-2 mb-4">
+        <div class="col-6 mb-2">
+          <button type="submit" class="btn btn-primary m-2" [disabled]="updateFormGroup.invalid">
+            Update
+          </button>
+          <a class="btn btn-danger" [routerLink]="'/booking'">Booking List</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

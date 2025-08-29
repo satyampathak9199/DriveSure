@@ -1,0 +1,27 @@
+
+<div class="card mt-3">
+  <div class="card-header bg-primary text-white">
+    Car Type
+    <a [routerLink]="'new'">Add</a>
+  </div>
+  <div class="card-body">
+    <!-- Search -->
+    <input type="text" class="form-control mb-3" placeholder="Search by brand or model...">
+
+    <!-- Table -->
+    <table class="table table-bordered table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th style="width: 20%;">Car Type</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let types of filteredCarTypes">
+          <td><strong>{{types.name }}</strong></td>
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
